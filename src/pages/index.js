@@ -1,6 +1,5 @@
 import Head from 'next/head'
-import "../styles/Reset.css"
-import "../styles/globals.css"
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -11,10 +10,13 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <h1 className="text-3xl font-bold underline">
-          Hello world!
-        </h1>
+      <main className='flex justify-center items-center h-screen flex-col'>  
+        <div className='bg-yellow-300 p-10 rounded-3xl'>
+          <h1 className="text-3xl font-bold underline">Hola kimis</h1>
+        </div>
+        <div className=' m-5 bg-blue-600 p-2 rounded-lg text-white'>
+          <Link href={"/login"}> click me for go to Login</Link>
+        </div>
       </main>
     </>
   )

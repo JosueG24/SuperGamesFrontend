@@ -12,8 +12,8 @@
 
 /* Aquí definimos las Custom properties */
 :root{
-    --color-primario         : #06283D;
-    --color-secundario       : #DFF6FF;
+    --color-primario         : #000000;
+    --color-secundario       : #ffffff;
     
     /* Tipografía */
     --tipo-principal   : Helvetica, Arial, sans-serif;
