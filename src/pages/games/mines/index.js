@@ -1,7 +1,10 @@
-import React from 'react'
+import Link from "next/link"
 
 export default function mines() {
   return (
-    <div>mines</div>
+    <section>
+      mines
+      <Link href={"/"}>return</Link>
+    </section>
   )
 }

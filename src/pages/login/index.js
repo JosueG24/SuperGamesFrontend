@@ -1,9 +1,13 @@
-import React from 'react'
+import Link from "next/link"
 
-export default function index() {
+export default function Login() {
   return (
-    <div>
-        login
-    </div>
+    <secction>
+        <div>this is login</div>
+        <div>
+          <Link href={"/"}>go to Home</Link>
+          <Link href={"/support"}>go to ?</Link>
+        </div>
+    </secction>
   )
 }

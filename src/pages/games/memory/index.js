@@ -1,7 +1,10 @@
-import React from 'react'
+import Link from "next/link"
 
 export default function memory() {
   return (
-    <div>memory</div>
+    <section>
+      memory
+      <Link href={"/"}>return</Link>
+    </section>
   )
 }

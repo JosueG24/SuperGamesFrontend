@@ -1,7 +1,10 @@
-import React from 'react'
+import Link from "next/link"
 
 export default function snake() {
   return (
-    <div>snake</div>
+    <section>
+      snake
+      <Link href={"/"}>return</Link>
+    </section>
   )
 }

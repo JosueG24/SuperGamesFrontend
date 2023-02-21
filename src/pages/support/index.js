@@ -1,7 +1,10 @@
-import React from 'react'
+import Link from "next/link"
 
 export default function support() {
   return (
-    <div>support</div>
+    <section>
+      support
+      <Link href={"/"}>return</Link>
+    </section>
   )
 }
