@@ -1,30 +1,31 @@
-/*
-    https://www.youtube.com/watch?v=Foieq2jTajE&t=1131s
-    Explicación de cada cosa en este archivo    
 
-  Con este reset vamos a resolver:
-    👉 Unificar el uso de Custom Properties
-    👉 Problemas de box-model más generales
-    👉 Problemas con imagenes, vídeos e iconos svg
-    👉 Problemas con tipografías y etiquetas input en formularios
-    👉 Unificar la tipografía de todas las etiquetas de una web
-*/
-
-/* Aquí definimos las Custom properties */
 :root{
-    --color-primario         : #000000;
-    --color-secundario       : #ffffff;
+
+    --color-DarckBlue : #0F1020;
+    --color-GrayBlue :  #1F2137;
+    --color-Pink :      #FF7394;
+    --color-LightBlue : #1C64F2;
+    --color-White :     #ffffff;
     
     /* Tipografía */
-    --tipo-principal   : Helvetica, Arial, sans-serif;
-    --tipo-secundaria  : Verdana;
+    --principalType  : 'Averia Libre', Helvetica, Arial, sans-serif;
+    --secondaryType  : 'Bungee Spice', Verdana;
+
+    /* Tamaños de fuente */
+    --Xsmall: ;
+    --small: ;
+    --medium: ;
+    --large: ;
+    --Xlarge: calc(2em + 1.5vw);
+    --XXlarge: ;
+
   }
 
   /* Las adaptamos al modo oscuro */
   @media (prefers-color-scheme: dark) {
     :root{
-        --color-primario         : #DFF6FF;
-        --color-secundario       : #06283D;
+        /* --color-primario         : #DFF6FF;
+        --color-secundario       : #0F1020; */
     }
   }
   
@@ -105,8 +106,8 @@
   
   /* Configuramos el texto que seleccionamos */
   ::selection {
-    background-color: var(--color-primario);
-    color: var(--color-secundario);
+    background-color: var(--color-DarckBlue);
+    color: var(--color-White);
   }
   
   /* Nivelamos problemas de tipografías y colocación de formularios */
@@ -141,9 +142,9 @@
   body {
     min-height  : 100vh;
     font-size   : 100%;
-    font-family : var(--tipo-principal);
-    color       : var(--color-primario);
-    background-color: var(--color-secundario);
+    font-family : var(--principalType);
+    color       : var(--color-White);
+    background-color: var(--color-DarckBlue);
     /* opcional */ line-height: 1.4em;
     /* opcional */ hyphens: auto;
     /* opcional */ font-smooth: always;
