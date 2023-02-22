@@ -12,7 +12,15 @@
     "@next/font": "13.1.6",
     "next": "13.1.6",
     "react": "18.2.0",
+<<<<<<< HEAD
     "react-dom": "18.2.0",
+=======
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
+>>>>>>> b70fb6e5a00fa68810646d56366c32331b53e86a
     "tailwindcss": "^3.2.7"
   }
 }
