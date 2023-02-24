@@ -1,7 +1,6 @@
 import Head from "next/head"
-import Footer from "./Footer"
 
-export default function Layout({children, title = "no-hay-titulo"}) {
+export default function Layout({children, page = "no-page"}) {
   return (
     <div>
         <Head>
@@ -15,7 +14,6 @@ export default function Layout({children, title = "no-hay-titulo"}) {
         </Head>
 
         <div>{children}</div>
-        <Footer title={title}/>
 
     </div>
   )
