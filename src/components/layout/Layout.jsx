@@ -13,7 +13,7 @@ export default function Layout({children, page = "no-page"}) {
             <link href="https://fonts.googleapis.com/css2?family=Averia+Libre:ital,wght@1,300&family=Bungee+Spice&display=swap" rel="stylesheet"/>
         </Head>
 
-        <div>{children}</div>
+        <div className="bg-c_DarckBlue text-white txtPrincipal">{children}</div>
 
     </div>
   )
