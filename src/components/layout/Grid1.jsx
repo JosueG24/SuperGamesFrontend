@@ -10,7 +10,7 @@ export default function Grid1({mode}) {
     useEffect(() => {
     async function request(){
         try {
-            const response = await axios.post(process.env.NEXT_PUBLIC_URL_BACKEND+"/api/V0/rancking/global",{mode:mode, userName:"guest"},{withCredentials: true,});
+            const response = await axios.post(process.env.NEXT_PUBLIC_URL_BACKEND+"/rancking/global",{mode:mode, userName:"guest"},{withCredentials: true,});
             console.log(response.data.data)
             settopPlayers(response.data.data.top);
             setMyPosition(response.data.data.myPosition)

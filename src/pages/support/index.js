@@ -3,7 +3,7 @@ import Link from "next/link"
 
 export default function support() {
   return (
-    <Layout>
+    <Layout route="public">
       <section>
         support
         <Link href={"/"}>return</Link>

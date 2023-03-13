@@ -1,7 +1,9 @@
 import Head from "next/head"
+import PrivateRoute from "./PrivateRoutes"
 
-export default function Layout({children, page = "no-page"}) {
+export default function Layout({children, route = "public"}) {
   return (
+    <PrivateRoute route={route}>
     <div>
         <Head>
             <title>Super Games</title>
@@ -16,5 +18,6 @@ export default function Layout({children, page = "no-page"}) {
         <div className="bg-c_DarckBlue text-white txtPrincipal">{children}</div>
 
     </div>
+    </PrivateRoute>
   )
 }

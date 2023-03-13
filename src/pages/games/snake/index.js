@@ -13,7 +13,7 @@ export default function snake() {
 
   }
   return (
-    <Layout page="snake">
+    <Layout route="private">
       <div className="w-screen h-screen">
         <header className="w-full h-1/7 bg-c_GrayBlue flex justify-around items-center px-8">
           <Link className="bg-red-700 p-3 margins" href={"/"}>Abandonar</Link>
