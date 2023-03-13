@@ -9,10 +9,14 @@ export default function Login() {
 
   async function ImGuest(){
     const result = await guestService()
+    if(result == true){
+      // operar que se inicio secion
+    }
+    //operar que hay errores con el objeto result
     console.log(result)
+    
     // apuntes :
     // validaciones bien, hay que crear el mensaje de advertencia si existen errores
-    // el servidor responde con codigo 500 para las rutas /login y /newUser
     // el sevidor responde con codigo 200 a /login/guest pero no establece la cookie
   }
   async function handleLogIn(e){
@@ -20,6 +24,10 @@ export default function Login() {
     const name = e.target.name.value.toLowerCase().trim()
     const password = e.target.password.value.toLowerCase().trim()
     const result = await LogInService({name, password})
+    if(result == true){
+      // operar que se inicio secion
+    }
+    //operar que hay errores con el objeto result
     console.log(result)
   }
   async function handleSingUp(e){
@@ -28,6 +36,10 @@ export default function Login() {
     const password = e.target.password.value.toLowerCase().trim()
     const email = e.target.email.value.toLowerCase().trim()
     const result = await SingUpService({name, password, email})
+    if(result == true){
+      // operar que se inicio secion
+    }
+    //operar que hay errores con el objeto result
     console.log(result)
   }
 
