@@ -1,27 +1,34 @@
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
 import { useState } from "react"
-import { LogInValidator, SingUpValidator } from "@/components/login/formsValidator"
+import { LogInService, SingUpService, guestService } from "@/components/login/formsServices"
 
 export default function Login() {
 
   const [mode, setMode] = useState(1)
 
-  function ImGuest(){
-    
+  async function ImGuest(){
+    const result = await guestService()
+    console.log(result)
+    // apuntes :
+    // validaciones bien, hay que crear el mensaje de advertencia si existen errores
+    // el servidor responde con codigo 500 para las rutas /login y /newUser
+    // el sevidor responde con codigo 200 a /login/guest pero no establece la cookie
   }
-  function handleLogIn(e){
+  async function handleLogIn(e){
     e.preventDefault()
-    const name = e.target.name.value
-    const password = e.target.password.value
-    const validation = LogInValidator({name, password})
+    const name = e.target.name.value.toLowerCase().trim()
+    const password = e.target.password.value.toLowerCase().trim()
+    const result = await LogInService({name, password})
+    console.log(result)
   }
-  function handleSingUp(e){
+  async function handleSingUp(e){
     e.preventDefault()
-    const name = e.target.name.value
-    const password = e.target.password.value
-    const email = e.target.email.value
-    const validation = SingUpValidator({name, password, email})
+    const name = e.target.name.value.toLowerCase().trim()
+    const password = e.target.password.value.toLowerCase().trim()
+    const email = e.target.email.value.toLowerCase().trim()
+    const result = await SingUpService({name, password, email})
+    console.log(result)
   }
 
   if(mode == 1)
