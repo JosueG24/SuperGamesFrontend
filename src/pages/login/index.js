@@ -1,10 +1,12 @@
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
 import { useState } from "react"
+import { useRouter } from 'next/router'
 import { LogInService, SingUpService, guestService } from "@/components/login/formsServices"
 
 export default function Login() {
 
+  const router = useRouter()
   const [mode, setMode] = useState(1)
   const [modal, setModal] = useState(false)
 
@@ -13,6 +15,7 @@ export default function Login() {
     if(result == true){
       // operar que se inicio secion
       setModal({message:"Se ha iniciado sesión correctamente", errors:[], type:"ok"})  
+      return
     }
     //operar que hay errores con el objeto result
     setModal({message:"han ocurrido algunos errores", errors:[result], type:"error"})
@@ -25,6 +28,7 @@ export default function Login() {
     if(result == true){
       // operar que se inicio secion
       setModal({message:"Se ha iniciado sesión correctamente", errors:[], type:"ok"})  
+      return
     }
     //operar que hay errores con el objeto result
     setModal({message:"han ocurrido algunos errores", errors:result, type:"error"})
@@ -38,6 +42,7 @@ export default function Login() {
     if(result == true){
       // operar que se inicio secion
       setModal({message:"Se ha iniciado sesión correctamente", errors:[], type:"ok"})  
+      return
     }
     //operar que hay errores con el objeto result
     setModal({message:"han ocurrido algunos errores", errors:result, type:"error"})
@@ -72,11 +77,11 @@ export default function Login() {
       {modal !== false &&
       <div className="top-0 right-0 fixed flexAllCenter w-screen h-screen">
         <div className={modal.type == "error"? "bg-c_GrayBlue margins outline-c_Pink w-2/4 h-1/2 flexAllCenter flex-col":"bg-c_GrayBlue margins w-2/4 h-1/2 flexAllCenter flex-col"}>
-          <p className="txtLg txtSecondary py-5">{modal.message}</p>
+          <p className="txtLg txtSecondary py-5 text-center">{modal.message}</p>
           {modal.errors.map((item, index)=>{return(
               <p className="txtMd pb-3" key={index}> - {item}</p>
             )})}
-          <button className="bg-c_LightGrayBlue rounded-md px-4 py-2 transition-all hover:margins" onClick={modal.type == "error"?()=>setModal(false):()=>console.log("hola")}>Cerrar</button>
+          <button className="bg-c_LightGrayBlue rounded-md px-4 py-2 transition-all hover:margins" onClick={modal.type == "error"?()=>setModal(false):()=> router.push('/')}>Cerrar</button>
         </div>
       </div>
       }
@@ -112,11 +117,11 @@ export default function Login() {
       {modal !== false &&
       <div className="top-0 right-0 fixed flexAllCenter w-screen h-screen">
         <div className={modal.type == "error"? "bg-c_GrayBlue margins outline-c_Pink w-2/4 h-1/2 flexAllCenter flex-col":"bg-c_GrayBlue margins w-2/4 h-1/2 flexAllCenter flex-col"}>
-          <p className="txtLg txtSecondary py-5">{modal.message}</p>
+          <p className="txtLg txtSecondary py-5 text-center">{modal.message}</p>
           {modal.errors.map((item, index)=>{return(
               <p className="txtMd pb-3" key={index}> - {item}</p>
             )})}
-          <button className="bg-c_LightGrayBlue rounded-md px-4 py-2 transition-all hover:margins" onClick={modal.type == "error"?()=>setModal(false):()=>console.log("hola")}>Cerrar</button>
+          <button className="bg-c_LightGrayBlue rounded-md px-4 py-2 transition-all hover:margins" onClick={modal.type == "error"?()=>setModal(false):()=>router.push('/login')}>Cerrar</button>
         </div>
       </div>
       }
