@@ -5,7 +5,7 @@ import Grid1 from "@/components/layout/Grid1"
 
 export default function memory() {
 
-  const [level, setLevel] = useState(undefined)
+  const [level, setLevel] = useState(1)
   const [points, setPoints] = useState(0)
   const [modal, setModal] = useState(true)
 
@@ -16,11 +16,11 @@ export default function memory() {
   return (
     <Layout route="private">
       <div className="w-screen h-screen">
-        <header className="w-full h-1/7 bg-c_GrayBlue flex justify-around items-center px-8">
-          <Link className="bg-red-700 p-3 margins" href={"/"}>Abandonar</Link>
+        <header className="w-full h-1/7 bg-c_GrayBlue flex justify-around items-center px-8 txtLg">
+          <Link className="bg-c_LightGrayBlue transition-all hover:bg-red-700 p-3 margins" href={"/"}>Regresar</Link>
           <button onClick={defaultFunction} className="">Nivel : {level}</button>
           <button onClick={defaultFunction} className="">Puntos : {points}</button>
-          <button onClick={defaultFunction} className="bg-c_LightBlue p-3 px-6 margins">Help</button>
+          <button onClick={defaultFunction} className="bg-c_LightGrayBlue p-3 px-6 margins transition-all hover:bg-c_Pink">Ayuda</button>
         </header>
         <section className="w-full h-6/7 p-3 flex">
           <div className="w-1/5 h-full mr-3 flex flex-col justify-between">
@@ -33,17 +33,23 @@ export default function memory() {
         </section>
         
         {modal == true &&
-        <div className="fixed bottom-1/4 left-1/3 w-1/3 h-1/2 bg-c_DarckBlue margins">
-          <div className="h-2/3 w-full ">
-            <p>Como jugar</p>
-            <p>Lorem impsums por doquier lalal lalal lalalal</p>
-          </div>
-          <div className="h-1/3 w-full  flex justify-center items-center">
-            <div className="w-1/3 h-full flex flex-col justify-center">
-              <p>Si fallas : -2</p>
-              <p>Si aciertas : +2</p>
+        <div className="top-0 fixed w-screen h-screen flexAllCenter">
+          <div className="w-1/3 h-1/2 bg-c_DarckBlue margins">
+            <div className="h-2/3 w-full py-3 px-5">
+              <p className="txtLg txtSecondary text-center pb-3">Nueva Partida</p>
+              <p className="txtMd">Lorem impsums por doquier lalal lalal lalalal</p>
             </div>
-            <button className="w-1/4 margins h-1/3 ml-5 bg-c_LightBlue" onClick={()=>setModal(false)}>Close</button>
+            <div className="h-1/3 w-full  flex justify-center items-center">
+              <div className="w-2/4 h-full flex flex-col justify-center">
+                <p className="txtMd text-center pb-3">Dificultad</p>
+                <div className="flex justify-around txtSm">
+                  <button className={level == 1? "bg-c_Pink px-2 py-1 margins rounded-md":"bg-c_LightGrayBlue px-2 py-1 margins rounded-md transition-all"} onClick={()=>setLevel(1)}>Nivel 1</button>
+                  <button className={level == 2? "bg-c_Pink px-2 py-1 margins rounded-md":"bg-c_LightGrayBlue px-2 py-1 margins rounded-md transition-all"} onClick={()=>setLevel(2)}>Nivel 2</button>
+                  <button className={level == 3? "bg-c_Pink px-2 py-1 margins rounded-md":"bg-c_LightGrayBlue px-2 py-1 margins rounded-md transition-all"} onClick={()=>setLevel(3)}>Nivel 3</button>
+                </div>
+              </div>
+              <button className="w-1/4 margins h-1/3 ml-5 bg-c_LightGrayBlue transition-all hover:bg-c_Pink" onClick={()=>setModal(false)}>Aceptar</button>
+            </div>
           </div>
         </div>
         }

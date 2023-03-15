@@ -26,7 +26,8 @@
     }
     /* Tamaños de fuente */
     .txtSm{
-
+        font-size:  calc(0.5em + 0.5vw);
+        line-height: 1.2em;
     }
     .txtMd{
         font-size:  calc(0.5em + 0.7vw);
