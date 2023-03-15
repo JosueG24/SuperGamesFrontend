@@ -2,11 +2,13 @@ import Layout from '@/components/layout/Layout'
 import Link from 'next/link'
 import Grid0 from '@/components/home/Grid0'
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import axios from 'axios'
 
 export default function Home() {
+  const Router = useRouter()
   const [modal, setModal] = useState(false)
-  const [gameMode, setGameMode] = useState({nm:1,title:"Memoria",img:"bgMemory",description:"Lorem impsum lala lalala de lala galala pop."})
+  const [gameMode, setGameMode] = useState({url:"/games/memory",title:"Memoria",img:"bgMemory",description:"Lorem impsum lala lalala de lala galala pop."})
   const [tab, setTab] = useState("memory")
   const [userData, setUserData] = useState({userName:"----", profilePhoto:1})
   useEffect(() => {
@@ -36,10 +38,19 @@ export default function Home() {
   }, [])
   
   function playGame(){
-
+    Router.push(gameMode.url)
   }
-  function logout(){
-
+  async function logout(){
+    try {
+      const response = await axios.post(process.env.NEXT_PUBLIC_URL_BACKEND+"/logout",{},{withCredentials: true,});
+      if(response.status){
+        // decidir si debo colocar una notificación
+        Router.push("/login")
+      }
+      Router.push("/login")
+    } catch (error) {
+      Router.push("/login")
+    }
   }
 
   return (
@@ -57,15 +68,15 @@ export default function Home() {
             </div>
           </div>
           <div className='h-full w-2/7 flexAllCenter flex-col justify-around'>
-            <img className={gameMode.nm !== 1? 'rounded-lg transition-all hover:margins': "rounded-lg transition-all margins outline-c_Pink"} src="/no2/pruebas1.png" onClick={()=>setGameMode({nm:1,title:"Memoria",img:"bgMemory",description:"Lorem impsum lala lalala de lala galala pop."})}/>
-            <img className={gameMode.nm !== 2 ?'rounded-lg transition-all hover:margins ':"rounded-lg transition-all margins outline-c_Pink"} src="/no2/pruebas1.png" onClick={()=>setGameMode({nm:2,title:"Busca Minas",img:"bgMines",description:"Lorem impsum lala lalala de lala galala pop."})}/>
-            <img className={gameMode.nm !== 3 ?'rounded-lg transition-all hover:margins ':"rounded-lg transition-all margins outline-c_Pink"} src="/no2/pruebas1.png" onClick={()=>setGameMode({nm:3,title:"Culebrita",img:"bgSnake",description:"Lorem impsum lala lalala de lala galala pop."})}/>
+            <img className={gameMode.url !== "/games/memory"? 'rounded-lg transition-all hover:margins': "rounded-lg transition-all margins outline-c_Pink"} src="/no2/pruebas1.png" onClick={()=>setGameMode({url:"/games/memory",title:"Memoria",img:"bgMemory",description:"Lorem impsum lala lalala de lala galala pop."})}/>
+            <img className={gameMode.url !== "/games/mines" ?'rounded-lg transition-all hover:margins ':"rounded-lg transition-all margins outline-c_Pink"} src="/no2/pruebas1.png" onClick={()=>setGameMode({url:"/games/mines",title:"Busca Minas",img:"bgMines",description:"Lorem impsum lala lalala de lala galala pop."})}/>
+            <img className={gameMode.url !== "/games/snake" ?'rounded-lg transition-all hover:margins ':"rounded-lg transition-all margins outline-c_Pink"} src="/no2/pruebas1.png" onClick={()=>setGameMode({url:"/games/snake",title:"Culebrita",img:"bgSnake",description:"Lorem impsum lala lalala de lala galala pop."})}/>
           </div>
         </div>
         {/* Seccion de la sesión */}
         <div className='h-screen w-2/7 border-l-c_GrayBlue border-l-4'>
           <div className='bg-c_GrayBlue w-full h-1/7 flexAllCenter justify-around'>
-            <img className='w-1/5 rounded-full hover:rounded-2xl' src='./profilePhoto1.jpg'/>
+            <img className='w-1/5 rounded-full hover:rounded-2xl' src='./profileImgs/profilePhoto1.jpg'/>
             <div className='flexAllCenter flex-col'>
               <p>{userData.userName}</p>
             </div>
