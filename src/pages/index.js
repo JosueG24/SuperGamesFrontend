@@ -6,6 +6,7 @@ import axios from 'axios'
 
 export default function Home() {
   const [modal, setModal] = useState(false)
+  const [gameMode, setGameMode] = useState({nm:1,title:"Memoria",img:"bgMemory",description:"Lorem impsum lala lalala de lala galala pop."})
   const [tab, setTab] = useState("memory")
   const [userData, setUserData] = useState({userName:"----", profilePhoto:1})
   useEffect(() => {
@@ -34,19 +35,41 @@ export default function Home() {
     })
   }, [])
   
+  function playGame(){
+
+  }
+  function logout(){
+
+  }
+
   return (
     <Layout route='private'>
       <section className='w-screen h-screen flex'>
-        <div className='h-screen w-5/7'>
-
+        <div className='h-screen w-5/7 flex'>
+          <div className='h-full w-5/7 flex flex-col gap-4 p-6 pr-0'>
+            <div className={'bg-cover bg-center w-full h-4/5 relative rounded-sm '+gameMode.img}>
+              <div className='absolute top-0 left-0 w-full h-1/7 bgOpaque flexAllCenter txtLg txtSecondary'><p>{gameMode.title}</p></div>
+              <button className='bg-c_Pink absolute bottom-10 left-1/3 w-1/3 h-10 flexAllCenter txtLg txtSecondary rounded-md transition-colors hover:margins hover:bg-c_DarckBlue' onClick={playGame}>Play</button>
+            </div>
+            <div className='bg-c_GrayBlue w-full h-1/5 rounded-sm p-5'>
+              <p className='w-full h-2/7 mb-1 txtMd text-c_Pink'>Como jugar?</p>
+              <p className='w-full h-5/7'>{gameMode.description}</p>
+            </div>
+          </div>
+          <div className='h-full w-2/7 flexAllCenter flex-col justify-around'>
+            <img className={gameMode.nm !== 1? 'rounded-lg transition-all hover:margins': "rounded-lg transition-all margins outline-c_Pink"} src="/no2/pruebas1.png" onClick={()=>setGameMode({nm:1,title:"Memoria",img:"bgMemory",description:"Lorem impsum lala lalala de lala galala pop."})}/>
+            <img className={gameMode.nm !== 2 ?'rounded-lg transition-all hover:margins ':"rounded-lg transition-all margins outline-c_Pink"} src="/no2/pruebas1.png" onClick={()=>setGameMode({nm:2,title:"Busca Minas",img:"bgMines",description:"Lorem impsum lala lalala de lala galala pop."})}/>
+            <img className={gameMode.nm !== 3 ?'rounded-lg transition-all hover:margins ':"rounded-lg transition-all margins outline-c_Pink"} src="/no2/pruebas1.png" onClick={()=>setGameMode({nm:3,title:"Culebrita",img:"bgSnake",description:"Lorem impsum lala lalala de lala galala pop."})}/>
+          </div>
         </div>
+        {/* Seccion de la sesión */}
         <div className='h-screen w-2/7 border-l-c_GrayBlue border-l-4'>
           <div className='bg-c_GrayBlue w-full h-1/7 flexAllCenter justify-around'>
-            <img className='w-1/5 rounded-full' src='./profilePhoto1.jpg'/>
+            <img className='w-1/5 rounded-full hover:rounded-2xl' src='./profilePhoto1.jpg'/>
             <div className='flexAllCenter flex-col'>
               <p>{userData.userName}</p>
             </div>
-            <button className='text-c_Pink px-2 py-1 rounded-md transition-all hover:bg-c_DarckBlue'>Cerrar sesión</button>
+            <button className='text-c_Pink px-2 py-1 rounded-md transition-all hover:bg-c_DarckBlue' onClick={logout}>Cerrar sesión</button>
           </div>
           <div className='w-full h-6/7 flexAllCenter flex-col justify-around'>
             <p className='txtMd txtSecondary'>Las mejores puntuaciones</p>
