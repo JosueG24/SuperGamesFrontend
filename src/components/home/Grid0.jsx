@@ -2,10 +2,9 @@ import axios from 'axios'
 import React from 'react'
 import { useState, useEffect } from 'react'
 
-export default function Grid0({tab}) {
+export default function Grid0({tab, modal, handleModal}) {
     const [data, setData] = useState([{userName:"----", puntos:0, nivel:0, fecha:0}, {userName:"----", puntos:0, nivel:0, fecha:0}, {userName:"----", puntos:0, nivel:0, fecha:0}, {userName:"---", puntos:0, nivel:0, fecha:0}, {userName:"----", puntos:0, nivel:0, fecha:0}, {userName:"----", puntos:0, nivel:0, fecha:0},{userName:"----", puntos:0, nivel:0, fecha:0}, {userName:"----", puntos:0, nivel:0, fecha:0},{userName:"----", puntos:0, nivel:0, fecha:0}, {userName:"----", puntos:0, nivel:0, fecha:0}])
     const [myData, setMyData] = useState({userName:"----", puntos:0, nivel:0, fecha:0})
-    const [modal, setModal] = useState(false)
 
     function convertToDate(date){
         const myDate = new Date()
@@ -21,12 +20,12 @@ export default function Grid0({tab}) {
         try {
             const res = await axios.post(process.env.NEXT_PUBLIC_URL_BACKEND+"/rancking/global",{mode:tab},{withCredentials:true})
             if(res.status !== 200){
-                setModal({message:"han ocurrido algunos errores", errors:["Ha fallado la peticion de datos al servidor, revise su conecxión a internet."], type:"error"})  
+                handleModal({message:"han ocurrido algunos errores", errors:["Ha fallado la peticion de datos al servidor, revise su conecxión a internet."], type:"error"})  
                 return false
             }
             return res
         } catch (error) {
-            setModal({message:"han ocurrido algunos errores", errors:["Ha fallado la peticion de datos al servidor, revise su conecxión a internet."], type:"error"})  
+            handleModal({message:"han ocurrido algunos errores", errors:["Ha fallado la peticion de datos al servidor, revise su conecxión a internet."], type:"error"})  
             return false
         }
       }
@@ -67,17 +66,6 @@ export default function Grid0({tab}) {
             <p className="h-full w-2/6 margins rounded-none outline-c_DarckBlue flexAllCenter overflow-hidden">{convertToDate(myData.date)}</p>
         </div>
     </div>
-    {modal !== false &&
-      <div className="top-0 right-0 fixed flexAllCenter w-screen h-screen">
-        <div className={modal.type == "error"? "bg-c_GrayBlue margins outline-c_Pink w-2/4 h-1/2 flexAllCenter flex-col":"bg-c_GrayBlue margins w-2/4 h-1/2 flexAllCenter flex-col"}>
-          <p className="txtLg txtSecondary py-5 text-center">{modal.message}</p>
-          {modal.errors.map((item, index)=>{return(
-              <p className="txtMd pb-3" key={index}> - {item}</p>
-            )})}
-          <button className="bg-c_LightGrayBlue rounded-md px-4 py-2 transition-all hover:margins" onClick={modal.type == "error"?()=>setModal(false):()=>{}}>Cerrar</button>
-        </div>
-      </div>
-      }
     </>
   )
 }

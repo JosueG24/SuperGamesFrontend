@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 export default function Home() {
+  const [modal, setModal] = useState(false)
   const [tab, setTab] = useState("memory")
   const [userData, setUserData] = useState({userName:"----", profilePhoto:1})
   useEffect(() => {
@@ -54,9 +55,20 @@ export default function Home() {
               <button className={tab=="mines"?"bg-c_Pink px-2 py-1 rounded-md":'bg-c_GrayBlue px-2 py-1 rounded-md'} onClick={()=>setTab("mines")}>BuscaMinas</button>
               <button className={tab=="snake"?"bg-c_Pink px-2 py-1 rounded-md":'bg-c_GrayBlue px-2 py-1 rounded-md'} onClick={()=>setTab("snake")}>Snake</button>
             </div>
-            <Grid0 tab={tab}/>
+            <Grid0 tab={tab} modal={modal} handleModal={(x)=>setModal(x)}/>
           </div>
         </div>
+        {modal !== false &&
+        <div className="top-0 right-0 fixed flexAllCenter w-screen h-screen">
+          <div className={modal.type == "error"? "bg-c_GrayBlue margins outline-c_Pink w-2/4 h-1/2 flexAllCenter flex-col":"bg-c_GrayBlue margins w-2/4 h-1/2 flexAllCenter flex-col"}>
+            <p className="txtLg txtSecondary py-5 text-center">{modal.message}</p>
+            {modal.errors.map((item, index)=>{return(
+                <p className="txtMd pb-3" key={index}> - {item}</p>
+              )})}
+            <button className="bg-c_LightGrayBlue rounded-md px-4 py-2 transition-all hover:margins" onClick={modal.type == "error"?()=>setModal(false):()=>{}}>Cerrar</button>
+          </div>
+        </div>
+        }
       </section>
     </Layout>
   )
