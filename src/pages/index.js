@@ -11,6 +11,7 @@ export default function Home() {
   const [gameMode, setGameMode] = useState({url:"/games/memory",title:"Memoria",img:"bgMemory",description:"Lorem impsum lala lalala de lala galala pop."})
   const [tab, setTab] = useState("memory")
   const [userData, setUserData] = useState({userName:"----", profilePhoto:1})
+  // session useEffect
   useEffect(() => {
       async function req(){
         try {
