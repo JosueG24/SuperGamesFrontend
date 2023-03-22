@@ -5,7 +5,7 @@ import axios from 'axios'
 export default function Grid1({mode, userName}) {
   
     const [topPlayers, settopPlayers] = useState([{userName:"----", puntos:0}, {userName:"----", puntos:0}, {userName:"----", puntos:0}, {userName:"---", puntos:0}, {userName:"----", puntos:0}, {userName:"----", puntos:0},{userName:"----", puntos:0}, {userName:"----", puntos:0},{userName:"----", puntos:0}, {userName:"----", puntos:0}])
-    const [myPosition, setMyPosition] = useState({userName:"----", puntos:0})
+    const [myPosition, setMyPosition] = useState({userName:userName, puntos:0})
 
     useEffect(() => {
     async function request(){
@@ -13,8 +13,11 @@ export default function Grid1({mode, userName}) {
             const response = await axios.post(process.env.NEXT_PUBLIC_URL_BACKEND+"/rancking/global",{mode, userName},{withCredentials: true,});
             const top = response.data.data.top
             const myPosition = response.data.data.myPosition
-            console.log(myPosition)
             settopPlayers(top);
+            if(myPosition == false){
+                // nop hay registros de puntuacion
+                return
+            }
             if(typeof myPosition == "object" && Array.isArray(myPosition)){
                 setMyPosition(myPosition[0])
             }else if(typeof myPosition == "object"){

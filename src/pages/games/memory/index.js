@@ -6,15 +6,9 @@ import MyLevel from "@/components/memory/MemoryLevel"
 import axios from "axios"
 
 export default function memory() {
-
-  const [userData, setUserData] = useState({userName:"----", profilePhoto:1})
-  const [level, setLevel] = useState(1)
-  const [Puntuacion, setPuntuacion] = useState(0)
-  const [modal, setModal] = useState(true)
-  const [errorModal, setErrorModal] = useState(false)
-  const [idRandomizeds, setidRandomizeds] = useState(randomizeArray(level*8))
-
+  
   // Session useEffect
+  const [userData, setUserData] = useState({userName:"----", profilePhoto:1})
   useEffect(() => {
     async function req(){
       try {
@@ -39,7 +33,14 @@ export default function memory() {
     }
     setUserData({userName:res.data.data, profilePhoto:1})
   })
-}, [])
+  }, [])
+  
+  const [level, setLevel] = useState(1)
+  const [Puntuacion, setPuntuacion] = useState(0)
+  const [idRandomizeds, setidRandomizeds] = useState(randomizeArray(level*8))
+  
+  const [modal, setModal] = useState(true)
+  const [errorModal, setErrorModal] = useState(false)
 
   useEffect(() => {
     setidRandomizeds(randomizeArray(level*8))

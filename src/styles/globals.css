@@ -78,6 +78,7 @@
         background-color: rgba(198, 45, 245, .8);
         transition: 0.6s;
     }
+    */ 
     .BoxPink{
         @apply outline outline-2 outline-white;
         background-color: rgba(232, 90, 232, .8);
@@ -93,6 +94,7 @@
         background-color: rgba(246, 230, 3, 0.933);
         transition: 0.6s;
     }
+    /*
     .BoxGreen{
         @apply outline outline-2 outline-white;
         background-color: rgba(92, 246, 3, 0.933);
@@ -139,19 +141,22 @@
     }
     /* Estilos de las cards BuscaMinas */
     .card1Mines{
-        @apply BoxPink;
+        @apply outline outline-2 outline-white;
+        transition: 0.6s;
         width: calc(100%/5);
         height: calc(100%/5);
         margin: 1%;
     }
     .card2Mines{
-        @apply BoxPink;
+        @apply outline outline-2 outline-white;
+        transition: 0.6s;
         width: calc(100%/6);
         height: calc(100%/6);
         margin: 0.5%;
     }
     .card3Mines{
-        @apply BoxPink;
+        @apply outline outline-2 outline-white;
+        transition: 0.6s;
         width: calc(100%/7);
         height: calc(100%/7);
         margin: 0.5%;
