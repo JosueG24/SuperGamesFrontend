@@ -2,31 +2,22 @@ import React from 'react'
 import axios from 'axios';
 import { useState } from 'react';
 
-export default function Modal({desactive, mode, puntuacion, level, title}) {
+export default function Modal({desactive, funcSi, title}) {
   const [saved, setSaved] = useState(null)
 
-  async function funcSi(){
-    setSaved(true)
-    try {
-      const resp = await axios.post(process.env.NEXT_PUBLIC_URL_BACKEND+"/saveScore", {puntuacion, mode, level},{withCredentials:true});
-        if(resp.status !== 200){
-          setSaved({
-            modaltitle: "Ha ocurrido un error",
-            modaltext :"Lo sentimos, no hemos podido guardar su nueva puntuación :c. Revise su coneccion a internet"
-          })
-        }else{
-          setSaved({
-            modaltitle: "Hemos guardado su record",
-            modaltext :""
-          })
-        }
-    } catch (error) {
-      console.log({error})
-      setSaved({
-        modaltitle: "Ha ocurrido un error",
-        modaltext :"Lo sentimos, no hemos podido guardar su nueva puntuación :c. Revise su coneccion a internet"
-      })
-    }
+  async function sisi(){
+  const resp = await funcSi()
+  if(resp !== 200){
+    setSaved({
+      modaltitle: "Ha ocurrido un error",
+      modaltext :"Lo sentimos, no hemos podido guardar su nueva puntuación :c. Revise su coneccion a internet"
+    })
+  }else{
+    setSaved({
+      modaltitle: "Hemos guardado su record",
+      modaltext :""
+    })
+  }
   }
 
   function funcNo(){
@@ -44,7 +35,7 @@ export default function Modal({desactive, mode, puntuacion, level, title}) {
           {title == "Ha ocurrido un error inesperado" && <p className='text-center'>Lo sentimos, hemos detectado un error. Puede que no tengas conexion a internet.</p>}
           <div className='flex justify-around m-2'>
               {title !== "Felicitaciones!!" && <button onClick={funcNo}>ok</button>}
-              {title == "Felicitaciones!!" && <button onClick={funcSi}>Si</button>}
+              {title == "Felicitaciones!!" && <button onClick={sisi}>Si</button>}
               {title == "Felicitaciones!!" && <button onClick={funcNo}>No</button>}
           </div>
       </div>

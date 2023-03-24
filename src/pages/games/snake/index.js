@@ -2,12 +2,22 @@ import Grid1 from "@/components/layout/Grid1"
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
 import { useState } from "react"
+import MyLevel from "@/components/snake/SnakeLevel"
 
 export default function snake() {
 
   const [level, setLevel] = useState(1)
   const [points, setPoints] = useState(0)
   const [modal, setModal] = useState(true)
+  const [start, setStart] = useState(null)
+
+  function fncStart(){
+      setStart(true)
+  }
+  function fncRestart(){
+    setStart(false)
+  }
+
 
   function defaultFunction(){
 
@@ -18,6 +28,7 @@ export default function snake() {
         <header className="w-full h-1/7 bg-c_GrayBlue flex justify-around items-center px-8 txtLg">
           <Link className="bg-c_LightGrayBlue transition-all hover:bg-red-700 p-3 margins" href={"/"}>Regresar</Link>
           <button onClick={defaultFunction} className="">Nivel : {level}</button>
+          <button className={start == false || start == null ? "bg-c_Pink p-3 px-6 margins transition-all hover:bg-c_LightGrayBlue" : "p-3 px-6 margins"} onClick={fncStart}>{start == false || start == null ? "Comenzar": "Juegue"}</button>   
           <button onClick={defaultFunction} className="">Puntos : {points}</button>
           <button onClick={defaultFunction} className="bg-c_LightGrayBlue p-3 px-6 margins transition-all hover:bg-c_Pink">Ayuda</button>
         </header>
@@ -26,8 +37,8 @@ export default function snake() {
             <Grid1 mode="snake"/>
             <button className="bg-c_LightGrayBlue w-full h-[calc(14.2857%-1rem)]">someone</button>
           </div>
-          <div className="w-4/5 h-full bg-c_LightGrayBlue">
-            <p>snake</p>
+          <div className="w-4/5 h-full">
+            <MyLevel level={level} inputPoints={points} setInputPoints={(x)=>setPoints(x)} btnStart={start} btnRestart={fncRestart}/>
           </div>
         </section>
 
