@@ -6,7 +6,7 @@ export default function Modal({desactive, mode, puntuacion, level, title}) {
 
   async function funcSi(){
     try {
-        const resp = await axios.post("http://localhost:4000/api/V1"+"/saveScore", {puntuacion, mode, level},{withCredentials:true});
+        const resp = await axios.post(process.env.NEXT_PUBLIC_URL_BACKEND+"/saveScore", {puntuacion, mode, level},{withCredentials:true});
         if(resp.status == 200){
           setSaved({
             modaltitle: "Hemos guardado su record",

@@ -8,9 +8,7 @@ export default function Modal({desactive, mode, puntuacion, level, title}) {
   async function funcSi(){
     setSaved(true)
     try {
-      console.log( {puntuacion, mode, level})
       const resp = await axios.post("http://localhost:4000/api/V1"+"/saveScore", {puntuacion, mode, level},{withCredentials:true});
-        console.log(resp)
         if(resp.status !== 200){
           setSaved({
             modaltitle: "Ha ocurrido un error",

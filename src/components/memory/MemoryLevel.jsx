@@ -49,7 +49,7 @@ export default function MyLevel({Level, setPuntuacion, Puntuacion, idRandomizeds
         async function verifyPoints(){
             try {
                 console.log({puntuacion:Puntuacion, mode:"memory", level:Level})
-                const resp = await axios.post("http://localhost:4000/api/V1"+"/validateRecord", {puntuacion:Puntuacion, mode:"memory", level:Level},{withCredentials:true});
+                const resp = await axios.post(process.env.NEXT_PUBLIC_URL_BACKEND+"/validateRecord", {puntuacion:Puntuacion, mode:"memory", level:Level},{withCredentials:true});
                 // resp = status, data
                 console.log(resp.data.message)
 

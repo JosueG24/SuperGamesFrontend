@@ -56,7 +56,6 @@ export default function mines() {
       //Aqui la consulta de record
       try {
           const resp = await axios.post(process.env.NEXT_PUBLIC_URL_BACKEND+"/validateRecord", {puntuacion:misPuntos, mode:"mines", level:level},{withCredentials:true});
-          console.log(resp.data)
           if(resp.status !== 200){ 
               setSuperModal("Ha ocurrido un error inesperado")
               return
