@@ -69,9 +69,9 @@ export default function Home() {
             </div>
           </div>
           <div className='h-full w-2/7 flexAllCenter flex-col justify-around'>
-            <img className={gameMode.url !== "/games/memory"? 'rounded-lg transition-all hover:margins': "rounded-lg transition-all margins outline-c_Pink"} src="/no2/pruebas1.png" onClick={()=>setGameMode({url:"/games/memory",title:"Memoria",img:"bgMemory",description:"Lorem impsum lala lalala de lala galala pop."})}/>
-            <img className={gameMode.url !== "/games/mines" ?'rounded-lg transition-all hover:margins ':"rounded-lg transition-all margins outline-c_Pink"} src="/no2/pruebas1.png" onClick={()=>setGameMode({url:"/games/mines",title:"Busca Minas",img:"bgMines",description:"Lorem impsum lala lalala de lala galala pop."})}/>
-            <img className={gameMode.url !== "/games/snake" ?'rounded-lg transition-all hover:margins ':"rounded-lg transition-all margins outline-c_Pink"} src="/no2/pruebas1.png" onClick={()=>setGameMode({url:"/games/snake",title:"Culebrita",img:"bgSnake",description:"Lorem impsum lala lalala de lala galala pop."})}/>
+            <img className={gameMode.url !== "/games/memory"? 'rounded-lg transition-all hover:margins': "rounded-lg transition-all margins outline-c_Pink"} src="/GameMiniature/MemoryMin.jpg" onClick={()=>setGameMode({url:"/games/memory",title:"Memoria",img:"bgMemory",description:"Lorem impsum lala lalala de lala galala pop."})}/>
+            <img className={gameMode.url !== "/games/mines" ?'rounded-lg transition-all hover:margins ':"rounded-lg transition-all margins outline-c_Pink"} src="/GameMiniature/MineMin.jpg" onClick={()=>setGameMode({url:"/games/mines",title:"Busca Minas",img:"bgMines",description:"Lorem impsum lala lalala de lala galala pop."})}/>
+            <img className={gameMode.url !== "/games/snake" ?'rounded-lg transition-all hover:margins ':"rounded-lg transition-all margins outline-c_Pink"} src="/GameMiniature/SnakeMin.jpg" onClick={()=>setGameMode({url:"/games/snake",title:"Culebrita",img:"bgSnake",description:"Lorem impsum lala lalala de lala galala pop."})}/>
           </div>
         </div>
         {/* Seccion de la sesión */}

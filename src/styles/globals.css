@@ -47,15 +47,15 @@
     }
     /* Backgorunds imagenes  */
     .bgMines{
-        background-image: url(/no1/fondoGusanos.png);
+        background-image: url(/GameBait/MineBait.jpg);
         transition: all;
     }
     .bgMemory{
-        background-image: url(/no1/fondoGusanos.png);
+        background-image: url(/GameBait/MemoryBait.jpg);
         transition: all;
     }
     .bgSnake{
-        background-image: url(/no1/fondoGusanos.png);
+        background-image: url(/GameBait/SnakeBait.jpg);
         transition: all;
     }
     /*  */

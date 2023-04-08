@@ -22,11 +22,11 @@ export const LogInService = async (values)=>{
         }
         return true
     } catch (error) {
-        if(error.response.status == 401){
+        if(error.response && error.response.status == 401){
             errors.push("usuario o contrasweña invalidos")
             return errors    
         }
-        errors.push("ha ocurrido un error inesperado")
+        errors.push("ha ocurrido un error inesperado, quizá hayas perdido tu coneccion a internet.")
         return errors
     }
 }
