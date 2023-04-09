@@ -66,6 +66,24 @@ export default function memory() {
       return myArr
   }
 
+  function funcReset(){
+    // volteamos las cards que estaban levantadas
+    const cardFFlip = document.querySelectorAll(".frontFlip")
+    cardFFlip.forEach(card=>{
+      card.classList.remove("frontFlip")
+    })
+    const cardBFlip = document.querySelectorAll(".backFlip")
+    cardBFlip.forEach(card=>{
+      card.classList.remove("backFlip")
+    })
+    // reseteamos los hocks
+    setLevel(1)
+    setModal(true)
+    setPuntuacion(0)
+    setidRandomizeds(randomizeArray(level*8))
+    setErrorModal(false)
+  }
+
   return (
     <Layout route="private">
       <div className="w-screen h-screen">
@@ -78,7 +96,7 @@ export default function memory() {
         <section className="w-full h-6/7 p-3 flex">
           <div className="w-1/5 h-full mr-3 flex flex-col justify-between">
             <Grid1 mode="memory" userName={userData.userName}/>
-            <Link className="bg-c_LightGrayBlue w-full h-[calc(14.2857%-1rem)] txtLg flexAllCenter transition-all hover:bg-c_Pink" href={"/games/memory"}>Reiniciar</Link>
+            <button className="bg-c_LightGrayBlue w-full h-[calc(14.2857%-1rem)] txtLg flexAllCenter transition-all hover:bg-c_Pink" onClick={funcReset}>Reiniciar</button>
           </div>
           <div className="w-4/5 h-full bg-c_LightGrayBlue">
             {/* // Game */}

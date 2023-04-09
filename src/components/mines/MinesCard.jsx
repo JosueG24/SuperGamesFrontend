@@ -15,25 +15,25 @@ export default function Card({id, Level, funcOnClick, value}) {
   if(Level == 1){return (
     <div id={"mineCard_Div"+id} onClick={Clikado} className='card1Mines'>
         {value == 9 &&
-        <p id={"mineCard_P"+id} className={"w-full h-full flexAllCenter hidden"}>*</p>}
+        <p id={"mineCard_P"+id} className={"w-full h-full flexAllCenter hidden imAMineP"}>*</p>}
         {value !== 9 &&
-        <p id={"mineCard_P"+id} className={"w-full h-full flexAllCenter hidden"}>{value}</p>}
+        <p id={"mineCard_P"+id} className={"w-full h-full flexAllCenter hidden imAMineP"}>{value}</p>}
     </div>
   )}
   if(Level ==2){return (
     <div id={"mineCard_Div"+id} onClick={Clikado} className='card2Mines'>
         {value == 9 &&
-        <p id={"mineCard_P"+id} className={"w-full h-full flexAllCenter hidden"}>*</p>}
+        <p id={"mineCard_P"+id} className={"w-full h-full flexAllCenter hidden imAMineP"}>*</p>}
         {value !== 9 &&
-        <p id={"mineCard_P"+id} className={"w-full h-full flexAllCenter hidden"}>{value}</p>}
+        <p id={"mineCard_P"+id} className={"w-full h-full flexAllCenter hidden imAMineP"}>{value}</p>}
     </div>
   )}
   if(Level == 3){return (
     <div id={"mineCard_Div"+id} onClick={Clikado} className='card3Mines'>
         {value == 9 &&
-        <p id={"mineCard_P"+id} className={"w-full h-full flexAllCenter hidden"}>*</p>}
+        <p id={"mineCard_P"+id} className={"w-full h-full flexAllCenter hidden imAMineP"}>*</p>}
         {value !== 9 &&
-        <p id={"mineCard_P"+id} className={"w-full h-full flexAllCenter hidden"}>{value}</p>}
+        <p id={"mineCard_P"+id} className={"w-full h-full flexAllCenter hidden imAMineP"}>{value}</p>}
     </div>
   )}
 }

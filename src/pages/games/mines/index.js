@@ -82,8 +82,10 @@ export default function mines() {
 
   // Creamos el array de posiciones
   let myObject;
+  const [resetSwitch, setResetSwitch] = useState(0)
   const [mapArray, setMapArray] = useState(myObject)
   useEffect(() => {
+    console.log("useEffect")
     if(level !== null){
       myObject = new mineArray(level);
       setMapArray(myObject.mapArray)
@@ -91,7 +93,29 @@ export default function mines() {
       myObject = null;
       setMapArray(myObject)
     }
-  }, [level])
+  }, [level,resetSwitch])
+
+  function funReset(){
+    try {
+      document.querySelector(".BoxRed").classList.remove("BoxRed")
+    } catch (error) {}
+    
+    const cardP = document.querySelectorAll(".imAMineP")
+    cardP.forEach(card=>{
+      card.classList.add("hidden")
+    })
+
+
+    setLevel(1)
+    setPuntuacion(0)
+  
+    setModal(true)
+    setErrorModal(false)
+    setSuperModal(false)
+
+    setResetSwitch(resetSwitch+1)
+    document.querySelector("#MinesDiv").classList.remove("notClick")
+  }
 
 function defaultFunction(){}
 
@@ -107,7 +131,7 @@ function defaultFunction(){}
         <section className="w-full h-6/7 p-3 flex">
           <div className="w-1/5 h-full mr-3 flex flex-col justify-between">
             <Grid1 mode="mines" userName={userData.userName}/>
-            <Link className="bg-c_LightGrayBlue w-full h-[calc(14.2857%-1rem)] txtLg flexAllCenter transition-all hover:bg-c_Pink" href={"/games/memory"}>Reiniciar</Link>
+            <button className="bg-c_LightGrayBlue w-full h-[calc(14.2857%-1rem)] txtLg flexAllCenter transition-all hover:bg-c_Pink" onClick={funReset}>Reiniciar</button>
           </div>
           <div className="w-4/5 h-full bg-c_LightGrayBlue">
             {/* Game */}

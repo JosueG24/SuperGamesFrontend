@@ -20,6 +20,9 @@ export default function snake() {
 
 
   function defaultFunction(){
+  }
+
+  function funcReset(){
 
   }
   return (
@@ -35,7 +38,7 @@ export default function snake() {
         <section className="w-full h-6/7 p-3 flex">
           <div className="w-1/5 h-full mr-3 flex flex-col justify-between">
             <Grid1 mode="snake"/>
-            <button className="bg-c_LightGrayBlue w-full h-[calc(14.2857%-1rem)]">someone</button>
+            <button className="bg-c_LightGrayBlue w-full h-[calc(14.2857%-1rem)] txtLg flexAllCenter transition-all hover:bg-c_Pink" onClick={funcReset}></button>
           </div>
           <div className="w-4/5 h-full">
             <MyLevel level={level} inputPoints={points} setInputPoints={(x)=>setPoints(x)} btnStart={start} btnRestart={fncRestart}/>
