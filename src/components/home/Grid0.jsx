@@ -34,7 +34,11 @@ export default function Grid0({tab, modal, handleModal}) {
             return
         }
         setData(res.data.data.top)
-        setMyData(res.data.data.myPosition)
+        if(typeof res.data.data.myPosition == "object" && Array.isArray(res.data.data.myPosition)){
+            setMyData(res.data.data.myPosition[0])
+        }else if(typeof res.data.data.myPosition == "object"){
+            setMyData(res.data.data.myPosition)
+        }
       })
     }, [tab])
     
