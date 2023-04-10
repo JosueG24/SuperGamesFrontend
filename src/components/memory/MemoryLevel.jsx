@@ -14,6 +14,11 @@ function ComprobarPar(val1, val2, Level){
 export default function MyLevel({Level, setPuntuacion, Puntuacion, idRandomizeds}) {
     
     const sistemaPunteo = [Level*3, Level]
+    useEffect(() => {
+      setParejas(0)
+      setBtnsPushed([])
+    }, [Puntuacion, Level])
+    
     /////// Aquí manejaremos el control de girar cartas depar en par
     const [BtnsPushed, setBtnsPushed] = useState([])
     const [Parejas, setParejas] = useState(0)
@@ -67,7 +72,7 @@ export default function MyLevel({Level, setPuntuacion, Puntuacion, idRandomizeds
                 }
                 setModalActive("Lo sentimos, ha ocurrido un error con la conexión y no hemos podido validar su puntuación")
             } catch (error) {
-                console.log(error)
+                // console.log(error)
                 setModalActive("Lo sentimos, ha ocurrido un error con la conexión y no hemos podido validar su puntuación")
             }
         }

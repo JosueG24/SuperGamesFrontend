@@ -8,7 +8,7 @@ import axios from 'axios'
 export default function Home() {
   const Router = useRouter()
   const [modal, setModal] = useState(false)
-  const [gameMode, setGameMode] = useState({url:"/games/memory",title:"Memoria",img:"bgMemory",description:"Lorem impsum lala lalala de lala galala pop."})
+  const [gameMode, setGameMode] = useState({url:"/games/memory",title:"Memoria",img:"bgMemory",description:"¡Bienvenido al juego de memoria! Pon a prueba tu memoria y habilidades para encontrar parejas de cartas iguales en el menor número de intentos posible. ¡Diviértete y desafía a tus amigos a superar tu puntaje!."})
   const [tab, setTab] = useState("memory")
   const [userData, setUserData] = useState({userName:"----", profilePhoto:1})
   // session useEffect
@@ -63,15 +63,15 @@ export default function Home() {
               <div className='absolute top-0 left-0 w-full h-1/7 bgOpaque flexAllCenter txtLg txtSecondary'><p>{gameMode.title}</p></div>
               <button className='bg-c_Pink absolute bottom-10 left-1/3 w-1/3 h-10 flexAllCenter txtLg txtSecondary rounded-md transition-colors hover:margins hover:bg-c_DarckBlue' onClick={playGame}>Play</button>
             </div>
-            <div className='bg-c_GrayBlue w-full h-1/5 rounded-sm p-5'>
-              <p className='w-full h-2/7 mb-1 txtMd text-c_Pink'>Como jugar?</p>
-              <p className='w-full h-5/7'>{gameMode.description}</p>
+            <div className='bg-c_GrayBlue w-full h-1/5 rounded-sm p-3'>
+              <p className='w-full h-1/7 mb-2 txtMd text-c_Pink'>Como jugar?</p>
+              <p className='w-full h-6/7'>{gameMode.description}</p>
             </div>
           </div>
           <div className='h-full w-2/7 flexAllCenter flex-col justify-around'>
-            <img className={gameMode.url !== "/games/memory"? 'rounded-lg transition-all hover:margins': "rounded-lg transition-all margins outline-c_Pink"} src="/GameMiniature/MemoryMin.jpg" onClick={()=>setGameMode({url:"/games/memory",title:"Memoria",img:"bgMemory",description:"Lorem impsum lala lalala de lala galala pop."})}/>
-            <img className={gameMode.url !== "/games/mines" ?'rounded-lg transition-all hover:margins ':"rounded-lg transition-all margins outline-c_Pink"} src="/GameMiniature/MineMin.jpg" onClick={()=>setGameMode({url:"/games/mines",title:"Busca Minas",img:"bgMines",description:"Lorem impsum lala lalala de lala galala pop."})}/>
-            <img className={gameMode.url !== "/games/snake" ?'rounded-lg transition-all hover:margins ':"rounded-lg transition-all margins outline-c_Pink"} src="/GameMiniature/SnakeMin.jpg" onClick={()=>setGameMode({url:"/games/snake",title:"Culebrita",img:"bgSnake",description:"Lorem impsum lala lalala de lala galala pop."})}/>
+            <img className={gameMode.url !== "/games/memory"? 'rounded-lg transition-all hover:margins': "rounded-lg transition-all margins outline-c_Pink"} src="/GameMiniature/MemoryMin.jpg" onClick={()=>setGameMode({url:"/games/memory",title:"Memoria",img:"bgMemory",description:"¡Bienvenido al juego de memoria! Pon a prueba tu memoria y habilidades para encontrar parejas de cartas iguales en el menor número de intentos posible. ¡Diviértete y desafía a tus amigos a superar tu puntaje!."})}/>
+            <img className={gameMode.url !== "/games/mines" ?'rounded-lg transition-all hover:margins ':"rounded-lg transition-all margins outline-c_Pink"} src="/GameMiniature/MineMin.jpg" onClick={()=>setGameMode({url:"/games/mines",title:"Busca Minas",img:"bgMines",description:"Pon a prueba tus habilidades y estrategia para despejar el tablero de minas ocultas sin detonar ninguna de ellas.¡Diviértete y desafía a los competidores a despejar el tablero!."})}/>
+            <img className={gameMode.url !== "/games/snake" ?'rounded-lg transition-all hover:margins ':"rounded-lg transition-all margins outline-c_Pink"} src="/GameMiniature/SnakeMin.jpg" onClick={()=>setGameMode({url:"/games/snake",title:"Culebrita",img:"bgSnake",description:"¡Bienvenido al clásico juego de la serpiente! Controla la serpiente para comer objetos y evita chocar. ¡Consigue la puntuación máxima y compite con tus amigos en este adictivo juego de habilidad!"})}/>
           </div>
         </div>
         {/* Seccion de la sesión */}

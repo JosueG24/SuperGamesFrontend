@@ -109,7 +109,7 @@ export default function memory() {
           <div className="w-1/3 h-1/2 bg-c_DarckBlue margins">
             <div className="h-2/3 w-full py-3 px-5">
               <p className="txtLg txtSecondary text-center pb-3">Nueva Partida</p>
-              <p className="txtMd">Lorem impsums por doquier lalal lalal lalalal</p>
+              <p className="txtMd pb-3">Para jugar, debes seleccionar dos cartas y darles vuelta para ver la imagen que tienen en su parte frontal. Si las cartas seleccionadas son iguales, habrás encontrado una pareja y las cartas permanecerán boca arriba en el tablero. Si no son iguales, se volverán a colocar boca abajo en el tablero y deberás recordar su ubicación para encontrar su pareja en el futuro.</p>
             </div>
             <div className="h-1/3 w-full  flex justify-center items-center">
               <div className="w-2/4 h-full flex flex-col justify-center">

@@ -50,7 +50,7 @@ export default function snake() {
           <div className="w-1/3 h-1/2 bg-c_DarckBlue margins">
             <div className="h-2/3 w-full py-3 px-5">
               <p className="txtLg txtSecondary text-center pb-3">Nueva Partida</p>
-              <p className="txtMd">Lorem impsums por doquier lalal lalal lalalal</p>
+              <p className="txtMd">Debes controlar una serpiente para que coma los objetos que aparecen en el tablero sin chocar con los bordes o con la propia serpiente. A medida que la serpiente come, crece en longitud, lo que hace más difícil evitar colisiones.</p>
             </div>
             <div className="h-1/3 w-full  flex justify-center items-center">
               <div className="w-2/4 h-full flex flex-col justify-center">
