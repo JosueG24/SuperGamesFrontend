@@ -1,6 +1,6 @@
 import Grid1 from "@/components/layout/Grid1"
 import Layout from "@/components/layout/Layout"
-import Link from "next/link"
+import { useRouter } from "next/router"
 import axios from "axios"
 import { useState, useEffect } from "react"
 import MyLevel from "@/components/mines/MinesLevel"
@@ -8,7 +8,7 @@ import mineArray from "@/components/mines/create_array"
 import Modal from '@/components/mines/MinesModal';
 
 export default function mines() {
-  
+  const router = useRouter();
   // session useEfect
   const [userData, setUserData] = useState({userName:"----", profilePhoto:1})
   useEffect(() => {
@@ -122,10 +122,10 @@ function defaultFunction(){}
     <Layout route="private">
       <div className="w-screen h-screen">
         <header className="w-full h-1/7 bg-c_GrayBlue flex justify-around items-center px-8 txtLg">
-          <Link className="bg-c_LightGrayBlue transition-all hover:bg-red-700 p-3 margins" href={"/"}>Regresar</Link>
+          <button className="bg-c_LightGrayBlue transition-all hover:bg-red-700 p-3 margins" onClick={() =>router.back()}>Regresar</button>
           <button onClick={defaultFunction} className="">Nivel : {level}</button>
           <button onClick={defaultFunction} className="">Puntos : {Puntuacion}</button>
-          <button onClick={defaultFunction} className="bg-c_LightGrayBlue p-3 px-6 margins transition-all hover:bg-c_Pink">Ayuda</button>
+          <button className="bg-c_LightGrayBlue p-3 px-6 margins transition-all hover:bg-c_Pink"  onClick={() =>router.push("/support")}>Ayuda</button>
         </header>
         <section className="w-full h-6/7 p-3 flex">
           <div className="w-1/5 h-full mr-3 flex flex-col justify-between">

@@ -1,11 +1,11 @@
 import Grid1 from "@/components/layout/Grid1"
 import Layout from "@/components/layout/Layout"
-import Link from "next/link"
+import { useRouter } from "next/router"
 import { useState } from "react"
 import MyLevel from "@/components/snake/SnakeLevel"
 
 export default function snake() {
-
+  const router = useRouter()
   const [level, setLevel] = useState(1)
   const [points, setPoints] = useState(0)
   const [modal, setModal] = useState(true)
@@ -29,7 +29,7 @@ export default function snake() {
     <Layout route="private">
       <div className="w-screen h-screen">
         <header className="w-full h-1/7 bg-c_GrayBlue flex justify-around items-center px-8 txtLg">
-          <Link className="bg-c_LightGrayBlue transition-all hover:bg-red-700 p-3 margins" href={"/"}>Regresar</Link>
+          <button className="bg-c_LightGrayBlue transition-all hover:bg-red-700 p-3 margins" onClick={()=>router.back()}>Regresar</button>
           <button onClick={defaultFunction} className="">Nivel : {level}</button>
           <button className={start == false || start == null ? "bg-c_Pink p-3 px-6 margins transition-all hover:bg-c_LightGrayBlue" : "p-3 px-6 margins"} onClick={fncStart}>{start == false || start == null ? "Comenzar": "Juegue"}</button>   
           <button onClick={defaultFunction} className="">Puntos : {points}</button>

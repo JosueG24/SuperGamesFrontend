@@ -1,18 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import Card from './MinesCard'
-import { useRouter } from 'next/router';
 
 export default function MyLevel({Level, handlePuntuacion, arrayMap}) {
-    // const router = useRouter();
-    // let cantBoombs ;
-    // if(Level == 1) cantBoombs = 3;
-    // if(Level == 2) cantBoombs = 5;
-    // if(Level == 3) cantBoombs = 8;
-
-    // abandona partida
-    function acabar(){
-    }
 
     // Establecemos el array de cards respecto al nivel modificado
     const [NumCards, setNumCards] = useState([])

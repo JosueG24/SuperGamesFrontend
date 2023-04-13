@@ -1,5 +1,4 @@
 import Layout from '@/components/layout/Layout'
-import Link from 'next/link'
 import Grid0 from '@/components/home/Grid0'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
