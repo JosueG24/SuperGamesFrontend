@@ -24,6 +24,9 @@
     .txtSecondary{
         font-family: 'Bungee', cursive;
     }
+    .txtThird{
+        font-family: 'Roboto', sans-serif;
+    }
     /* Tamaños de fuente */
     .txtSm{
         font-size:  calc(0.5em + 0.5vw);
@@ -58,27 +61,7 @@
         background-image: url(/GameBait/SnakeBait.jpg);
         transition: all;
     }
-    /*  */
-    /*  */
-    /*  */
 
-    /* Estilos para el grid de rancking */
-    
-    /* Estilos para colorear */
-    /* .blackTrans{
-        @apply text-lg;
-        background-color: rgba(0, 0, 0, .6);
-    }
-    .BoxOpaque{
-        @apply outline outline-2 outline-white;
-        background-color: rgba(0, 0, 0, .8);
-    }
-    .BoxViolet{
-        @apply outline outline-2 outline-white;
-        background-color: rgba(198, 45, 245, .8);
-        transition: 0.6s;
-    }
-    */ 
     .BoxPink{
         @apply outline outline-2 outline-white;
         background-color: rgba(232, 90, 232, .8);
@@ -94,13 +77,6 @@
         background-color: rgba(246, 230, 3, 0.933);
         transition: 0.6s;
     }
-    /*
-    .BoxGreen{
-        @apply outline outline-2 outline-white;
-        background-color: rgba(92, 246, 3, 0.933);
-        transition: 0.6s;
-    } */
-
     /* Estilos de las cards de memoria */
     .card1{
         width: calc(100%/5);
@@ -164,5 +140,9 @@
     /* Estilo para desactivar onClicks */
     .notClick{
         pointer-events: none;
+    }
+    /* Clases de formulario */
+    .errorCamp{
+        @apply shadow-red-600 border-red-600 !important;
     }
 }

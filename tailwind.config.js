@@ -40,7 +40,8 @@ module.exports = {
         c_LightGrayBlue :  "#273043",
         c_Pink :      "#FF7394",
         c_LightBlue : "#1C64F2",
-        c_White :     "#ffffff"
+        c_White :     "#ffffff",
+        c_Opaque: "rgba(0, 0, 0, 0.5)"
       }
     },
   },

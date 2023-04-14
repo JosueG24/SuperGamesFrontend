@@ -12,7 +12,7 @@ export default function Layout({children, route = "public"}) {
             <link rel="icon" href="/favicon.ico" />
             <link rel="preconnect" href="https://fonts.googleapis.com"/>
             <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"/>
-            <link href="https://fonts.googleapis.com/css2?family=Averia+Libre:ital,wght@1,300&family=Bungee&display=swap" rel="stylesheet"/>
+            <link href="https://fonts.googleapis.com/css2?family=Averia+Libre:ital,wght@1,300&family=Bungee&family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet"></link>
         </Head>
 
         <div className="bg-c_DarckBlue text-white txtPrincipal">{children}</div>
