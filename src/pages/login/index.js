@@ -93,7 +93,7 @@ export default function Login() {
       <section className="w-screen h-screen flexAllCenter txtMd">
         <div className="w-2/3 h-5/6 flexAllCenter flex-col">
           <div className="w-full h-1/7 flexAllCenter">
-            <h1 className="txtXl2 txtSecondary">Bienvenido a super Kimis</h1>
+            <h1 className="txtXl2 txtSecondary">Bienvenido a Super Juegos</h1>
           </div>
           <div className="bg-c_GrayBlue w-5/6 h-5/7 rounded-md flexAllCenter flex-col">
             <p className=" txtLg w-full h-1/7 flexAllCenter">Crear una cuenta</p>

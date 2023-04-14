@@ -4,7 +4,23 @@
 
 ::selection {
     background-color: #0F1020;
-    color: white;
+    color: pink;
+  }
+
+  /* Estilo de la barra lateral */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Estilo del "thumb" o el control deslizante en la barra lateral */
+  ::-webkit-scrollbar-thumb {
+    background-color: #273043;
+    border-radius: 5px;
+  }
+  
+  /* Estilo del fondo de la barra lateral */
+  ::-webkit-scrollbar-track {
+    background-color: #1F2137;
   }
 
 @layer components{

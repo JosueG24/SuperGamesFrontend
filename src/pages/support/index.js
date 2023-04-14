@@ -52,16 +52,68 @@ export default function support() {
 
   return (
     <Layout route="public">
-      <section className="w-screen h-screen flex txtThird">
+      <section className="w-screen h-screen flex txtThird overflow-hidden">
         <div className="w-2/3 h-full border-r-4 border-c_GrayBlue">
-          <header className="bg-c_GrayBlue w-full h-1/7 flexAllCenter justify-start">
+          <header className="bg-c_GrayBlue w-full h-1/7 flexAllCenter justify-start items-center">
             <p className="txtXl ml-[calc(15%)] txtSecondary"> Soporte</p>
           </header>
-          <div className="p-4 overflow-y-auto">
-            <p className="p-3">Fast Refresh had to perform a full reload when ./src/pages/support/index.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload Fast Refresh had to perform a full reload when ./src/pages/support/index.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload Fast Refresh had to perform a full reload when ./src/pages/support/index.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload</p>
+          <div className="p-4 overflow-y-auto txtMd txtThird w-full h-6/7">
+
+            <div className='bg-c_GrayBlue p-3 mb-3'>
+              <p className="pb-1">¡Bienvenido a la sección de soporte! Aquí podrás obtener toda la información que necesites, así como reportar 
+                errores o pedir la ayuda que necesites.</p>
+              <p className=""> Encontrarás un índice con las diferentes 
+                secciones informativas justo debajo y a la derecha un formulario que podrás utilizar para comunicarte con el desarrollador
+                y recibir la ayuda que necesitas. Estaré encantado de atender cualquier duda; o si detectas algun mal funcionamiento, e
+                staré agradecido de que lo reportes.</p>
+            </div>
+            <div className='bg-c_GrayBlue p-3 mb-3 w-full'>
+              <p className="pb-3 txtPrincipal txtLg">Indice :</p>
+              <p className="pb-3">Preguntas frecuentes :</p>
+              <a className="pb-1 block txtSm" href="#quest1"> - ¿Cómo creo una cuenta en la aplicación?</a>
+              <a className="pb-1 block txtSm" href="#quest2"> - ¿Cómo inicio sesión en la aplicación?</a>
+              <a className="pb-1 block txtSm" href="#quest3"> - ¿Qué puedo hacer si la aplicación no funciona correctamente?</a>
+              <a className="pb-1 block txtSm" href="#quest4"> - ¿Cómo puedo informar un error o problema técnico en la aplicación?</a>
+              <a className="pb-1 block txtSm" href="#quest5"> - ¿Cómo puedo recuperar mi contraseña si la olvido?</a>
+              <a className="pb-1 block txtSm" href="#quest6"> - ¿Qué medidas de seguridad tiene la aplicación para proteger mi información personal?</a>
+              <a className="pb-1 block txtSm" href="#quest7"> - ¿Cómo puedo eliminar mi cuenta de la aplicación?</a>
+              <a className="pb-3 block txtSm" href="#quest8"> - ¿Cómo puedo obtener soporte técnico adicional?.</a>
+              <p className="pb-3">Guía para jugar :</p>
+              <a className="pb-1 block txtSm" href="#guide1"> - Memria</a>
+              <a className="pb-1 block txtSm" href="#guide2"> - Busca minas</a>
+              <a className="pb-1 block txtSm" href="#guide3"> - Snake</a>
+              <a className="pb-1 block txtSm" href="#guide4"> - Sistema de puntos</a>
+            </div>
+
+
+            <div className='bg-c_GrayBlue p-3 mb-3'>
+              <p className="pb-1 txtPrincipal txtLg">Preguntas frecuentes :</p>
+              <p id="quest1" className="">- ¿Cómo creo una cuenta en la aplicación?</p>
+              <p id="quest2" className="">- ¿Cómo inicio sesión en la aplicación?</p>
+              <p id="quest3" className="">- ¿Qué puedo hacer si la aplicación no funciona correctamente?</p>
+              <p id="quest4" className="">- ¿Cómo puedo informar un error o problema técnico en la aplicación?</p>
+              <p id="quest5" className="">- ¿Cómo puedo recuperar mi contraseña si la olvido?</p>
+              <p id="quest6" className="">- ¿Qué medidas de seguridad tiene la aplicación para proteger mi información personal?</p>
+              <p id="quest7" className="">- ¿Cómo puedo eliminar mi cuenta de la aplicación?</p>
+              <p id="quest8" className="">- ¿Cómo puedo obtener soporte técnico adicional?</p>
+            </div>
+            <div className='bg-c_GrayBlue p-3 mb-3'>
+              <p className="pb-3 txtPrincipal txtLg">Guía para jugar :</p>
+              <div id="guide1" className="bg-c_DarckBlue p-3 mb-3">
+                <p>Memoria</p>
+              </div>
+              <div id="guide2" className="bg-c_DarckBlue p-3 mb-3">
+                <p>Busca Minas</p>
+              </div>
+              <div id="guide3" className="bg-c_DarckBlue p-3 mb-3">
+                <p>Snake</p>
+              </div>
+              <div id="guide4" className="bg-c_DarckBlue p-3 mb-3">
+                <p>Sistema de puntos</p>
+              </div>
+            </div>
 
           </div>
-        <button onClick={() =>router.back()}>return</button>
 
         </div>
         <div className="w-1/3 h-full flexAllCenter flex-col">
